@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Random Quote Machine</title>
+    <style>
+        h1, h3 {
+            font-family: lobster,Arial;
+            margin-left: 30%;
+        }
+
+        #quote-box {
+            text-align: center;
+            margin-left: 30%;
+            margin-top: 10%;
+            font-family: lobster,Arial;
+            font-size: 2em;
+            background-color: white;
+            width: 450px;
+            padding: 10px;
+        }
+
+        span {
+            text-align: right;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GetQuote();
+
+            $('#new-quote').click(function () {
+                GetQuote();
+
+            });
+            $('#tweet-quote').click(function () {
+                var url = "https://twitter.com/share?text=" + $("#text").text() + " " + $("#author").text();
+
+
+                window.open(url);
+            });
+            function GetQuote() {
+
+                $.ajax({
+                    url: "https://type.fit/api/quotes",
+                    method: "get",
+                    dataType: "json",
+                    success: function (data) {
+                        var randomcolor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+                        $('body').css('background-color', randomcolor);
+
+
+                        var min = 0;
+                        var max = data.length;
+                        var randomNum = randomRange(min, max);
+                        $("#text").html(data[randomNum].text).css("color", randomcolor);
+                        $("#author").html(data[randomNum].author).css("color", randomcolor);
+                        $('h1').css('color', 'Orange');
+                        $('#new-quote').css('background-color', randomcolor);
+                        $('#tweet-quote').css('background-color', randomcolor);
+                        var anchor = document.getElementById('tweet-quote');
+                        anchor.href = "https://twitter.com/intent/tweet?text=" + data[randomNum].text + " " + data[randomNum].author;
+                    },
+                    error: function (err) {
+                        alert(err);
+                    }
+
+
+
+
+                });
+
+
+            }
+            function randomRange(myMin, myMax) {
+                return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+            }
+
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Random Quote Generator</h1>
+    <div id="quote-box" class="text-center">
+
+        <div id="text">
+
+
+        </div>
+
+
+        <span id="author">
+
+        </span>
+        <br />
+
+        <a href="#" target="_blank" class="btn" title="click to share tweet" role="button" id="tweet-quote">Tweet</a>
+        <button id="new-quote" title="Click to Get New Quote" class="btn" role="button">
+            New Quote
+        </button>
+        <br />
+        <br />
+    </div>
+    <br />
+    <br />
+    <h6 class="text-center">Written and Coded By <a href="https://codepen.io/Shahraiz19"> Shahraiz Kayani</a></h6>
+</body>
+</html>
