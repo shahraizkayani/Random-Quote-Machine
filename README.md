@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+# Random Quote Machine
 
-You can use the [editor on GitHub](https://github.com/shahraizkayani/Random-Quote-Machine/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Random Quote Machine from Idea by Freecodecamp  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## User Stories
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+User Story #1: I can see a wrapper element with a corresponding id="quote-box".
 
-- Bulleted
-- List
+User Story #2: Within #quote-box, I can see an element with a corresponding id="text".
 
-1. Numbered
-2. List
+User Story #3: Within #quote-box, I can see an element with a corresponding id="author".
 
-**Bold** and _Italic_ and `Code` text
+User Story #4: Within #quote-box, I can see a clickable element with a corresponding id="new-quote".
 
-[Link](url) and ![Image](src)
-```
+User Story #5: Within #quote-box, I can see a clickable a element with a corresponding id="tweet-quote".
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+User Story #6: On first load, my quote machine displays a random quote in the element with id="text".
 
-### Jekyll Themes
+User Story #7: On first load, my quote machine displays the random quote's author in the element with id="author".
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/shahraizkayani/Random-Quote-Machine/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+User Story #8: When the #new-quote button is clicked, my quote machine should fetch a new quote and display it in the #text element.
 
-### Support or Contact
+User Story #9: My quote machine should fetch the new quote's author when the #new-quote button is clicked and display it in the #author element.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+User Story #10: I can tweet the current quote by clicking on the #tweet-quotea element. This a element should include the "twitter.com/intent/tweet" path in its href attribute to tweet the current quote.
+
+User Story #11: The #quote-box wrapper element should be horizontally centered. Please run tests with browser's zoom level at 100% and page maximized.
+
+
+## Uploaded on CodePen
+
+- [Random Quote Machine Jquery by Shahraiz Kayani on Codepen](https://codepen.io/shahraiz/full/ExKVOXQ)
+
